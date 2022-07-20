@@ -14,3 +14,60 @@ img {
   height: auto;
   display: block;
 }
+.container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+.spinner {
+  height: 150px;
+  width: 150px;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+.spinner > p {
+  font-weight: 600;
+  letter-spacing: 1px;
+  animation: fade 2s linear infinite;
+}
+@keyframes fade {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.spinner-sector {
+  position: absolute;
+  inset: 0;
+  border: 10px solid transparent;
+  border-radius: 50%;
+  animation: rotate var(--duration) var(--timing) infinite;
+  mix-blend-mode: overlay;
+}
+.spinner-sector:nth-of-type(1) {
+  border-top: 10px solid crimson;
+  --duration: 1s;
+  --timing: ease-in-out;
+}
+.spinner-sector:nth-of-type(2) {
+  border-left: 10px solid green;
+  --duration: 1.5s;
+  --timing: ease-in;
+}
+.spinner-sector:nth-of-type(3) {
+  border-right: 10px solid blue;
+  --duration: 2s;
+  --timing: ease-out;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
